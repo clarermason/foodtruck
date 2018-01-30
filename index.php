@@ -20,6 +20,7 @@
 // echo '</pre>';
 
 
+
 	$menu = loadMenuItems();
 
 	if (isset($_SESSION['Cart'])) {
