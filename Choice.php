@@ -22,7 +22,7 @@
 
 		public function getQuantity()
 		{
-			return $Quantity;
+			return $this->Quantity;
 		}
 
 		public function setOption($option, $value)
