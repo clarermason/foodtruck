@@ -48,16 +48,19 @@ $total = 0;
 				}
 		
 			}
-
-
-		
-		}
 		}
 	}
+}
+
+
+    if (isset($_POST['submitter'])) {
+		$_SESSION['total'] = $total;
+		header("Location: submit.php?");
+		exit;
+		}
 
 //echo '<pre>';
 //var_dump($cart);
-
 //echo '</pre>';
 	
 
@@ -91,11 +94,9 @@ $total = 0;
 
 <?=$cart->getHTML()?>
 				</table>
-						<input type="submit" method="post" value ="Submit Order">
+<input type="submit" method="post" value ="Submit Order" name="submitter">
 			</form>
 		</main>
-
-<h3>Your total is:$ <?=$total?></h3>
 		<footer>
 		</footer>
 	</body>

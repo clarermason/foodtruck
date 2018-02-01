@@ -5,7 +5,6 @@
 		private $Choices = array();
 		private $index = 0;
 		private $cartHeading = array("Dish", "Quantity", "Unit Price", "Extras (" . EXTRAS_PRICE * 100 . "¢ each)", "Subtotal", "");
-		
 
 		public function Add($Choice)
 		{
