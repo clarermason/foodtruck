@@ -1,3 +1,32 @@
+*{margin:0;
+padding:0;}
+
+body{
+            font-family:futura, helvetica, arial;
+            background-image: url(images/background.jpg);
+            background-size:cover;
+            background-attachment: fixed;
+            color: #F28599;
+            }
+header{
+    text-align: center;
+    font-size:2.2em;}
+div.wrapper{
+            width: 700px;
+            margin:30px auto;
+            padding:10px;
+            background-color: rgba(255, 255, 255, .8);
+            border:3px #A58609 solid;
+            overflow:hidden;
+            }
+input[type=submit] {
+            color: #F28599;
+            font-family: futura, helvetica, arial;
+            margin: 5px;
+            width:100%;
+            font-size: 1em;
+            }
+
 table#menu th:nth-child(2),
 table#menu th:nth-child(3),
 table#menu th:nth-child(5),
