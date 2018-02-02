@@ -28,12 +28,15 @@ else{
 		</header>
 		
 		<main>
+
+		<div class="wrapper">
 			<h3> Thank You for your Order!</h3>
 <br>
     Tax:$<?=$tax?>
 <br>
 Total:$ <?=$total?>
 <br>
+</div>
 		</main>
 		<footer>
 		</footer>

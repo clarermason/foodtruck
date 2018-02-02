@@ -14,6 +14,9 @@
 // echo '<pre>';
 // var_dump($_POST);
 // echo '</pre>';
+
+$total = 0;
+
 	$menu = loadMenuItems();
 	if (isset($_SESSION['Cart'])) {
 		$cart = unserialize($_SESSION['Cart']);  //  Set the Cart back to what it was the last time a Choice was added to it.
@@ -21,9 +24,9 @@
 		$cart = new Cart();
 	}
 	if ($_POST) {
+		$total = 0;
 		foreach ($_POST as $key => $value) {  //  Now set the user input for each HTML input tag back to the value that it had before the Post request.
 			$keys = explode(INPUT_DELIMITER, $key);
-			 
 			if (strpos($keys[0], ITEM_PREFIX) === 0) {  //  It's an Add Item request
 				$item = $menu->getItem($key);
 				$choice = (new Choice($item));
@@ -35,13 +38,32 @@
 			} elseif (strpos($keys[1], OPTION_PREFIX) === 0) {  //  It's a Choice Option
 				$cart->getChoice($keys[0])->setOption($value, true);
 			}
+
+			if(substr( $keys[0], 0, 6 ) === "Choice"){
+			$total = $total + ($cart->getChoice($keys[0])->Item->Price * $cart->getChoice($keys[0])->getQuantity());
+			
+			foreach ($cart->getChoice($keys[0])->Options as $key => $value){
+				if( $value == 1){
+					$total = $total + .25;
+				}
+		
+			}
 		}
 	}
+}
 // echo '<pre>';
 // var_dump($cart);
 // echo '</pre>';
 	
+
+  if (isset($_POST['submitter'])) {
+		$_SESSION['total'] = $total;
+		header("Location: submit.php?");
+		exit;
+		}
+
 	$_SESSION['Cart'] = serialize($cart);
+	
 	
 	
 ?>
@@ -70,7 +92,10 @@
 
 <?=$cart->getHTML()?>
 				</table>
+							<input type="submit" method="post" value ="Submit Order" name="submitter">
+
 			</form>
+
 		</div>
 		
 		<footer>
