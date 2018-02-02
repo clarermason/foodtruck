@@ -1,4 +1,10 @@
 <?php
+/**
+ * functions.php Stores global constants for use in the classes as well as in the main procedure.  Also contains the procedure that will load the Menu with Items.
+ *
+ * @package Food_Truck.
+ * @Peter Caliandro
+ */
 
 	define("EXTRAS_DELIMITER", ", ");
 	define("OPTIONS_DELIMITER", "<br />");
@@ -14,6 +20,11 @@
 
 	
 
+/**
+ * loadMenuItems:  The procedure that will load the Menu with Items.  The source text from which Items are built is hard-coded here.  A future iteration of this function could retrieve this text from a CSV file or a MySQL database.
+ *
+ * @return Menu A Menu object pre-loaded with an array of Item objects.
+ */
 	function loadMenuItems()
 	{
 		$myMenu = new Menu;

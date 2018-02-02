@@ -1,4 +1,12 @@
 <?php
+/**
+ * index.php The home HTML page of the Food Truck web application.  Displays a menu and allows a customer to load a shopping cart with which to order items.
+ *
+ * @package Food_Truck.
+ * @Peter Caliandro
+ * @Clare Mason
+ */
+
 	session_start();  //   session_start()  must be called before any HTML has been output.  If HTML has been output by the time session_start has been called, a new variable called $_SESSION will be created, only to be lost when the web page is refreshed, as this variable $_SESSION will not be connected with the real, superglobal variable $_SESSION.
 	
 	require_once "Item.php";

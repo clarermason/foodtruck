@@ -1,4 +1,12 @@
 <?php
+/**
+ * submit.php The order confirmation HTML page of the Food Truck web application.
+ *
+ * @package Food_Truck.
+ * @Clare Mason
+ */
+
+
 session_start();
 if(isset($_SESSION['total'])){
 
